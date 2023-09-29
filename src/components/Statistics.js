@@ -4,11 +4,11 @@ const Statistics = function ({ stats }) {
       <h2 className="title">Upload stats</h2>
 
       <ul className="stat-list">
-        {stats.map((el) => {
+        {stats.map(({ id, label, percentage }) => {
           return (
-            <li key={el.id} className="item">
-              <span className="label">{el.label}</span>
-              <span className="percentage"> {el.percentage}%</span>
+            <li key={id} className="item">
+              <span className="label">{label}</span>
+              <span className="percentage"> {percentage}%</span>
             </li>
           );
         })}

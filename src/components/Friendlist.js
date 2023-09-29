@@ -1,21 +1,14 @@
 const FriendList = function ({ friends }) {
   return (
     <ul className="friend-list">
-      {friends.map((friend) => {
+      {friends.map(({ id, isOnline, avatar, name }) => {
         return (
-          <li key={friend.id} className="item">
-            <span
-              className={friend.isOnline ? "status online" : "status offline"}
-            >
-              {friend.isOnline}
+          <li key={id} className="item">
+            <span className={isOnline ? "status online" : "status offline"}>
+              {isOnline}
             </span>
-            <img
-              className="avatar"
-              src={friend.avatar}
-              alt={friend.name}
-              width="48"
-            />
-            <p className="name">{friend.name}</p>
+            <img className="avatar" src={avatar} alt={name} width="48" />
+            <p className="name">{name}</p>
           </li>
         );
       })}
