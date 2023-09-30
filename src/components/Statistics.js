@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Statistics = function ({ stats }) {
   return (
     <section className="statistics">
@@ -15,6 +17,16 @@ const Statistics = function ({ stats }) {
       </ul>
     </section>
   );
+};
+
+Statistics.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
 };
 
 export default Statistics;

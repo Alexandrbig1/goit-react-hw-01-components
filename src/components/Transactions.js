@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Transactions = function ({ items }) {
   return (
     <table className="transaction-history">
@@ -22,6 +24,17 @@ const Transactions = function ({ items }) {
       </tbody>
     </table>
   );
+};
+
+Transactions.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default Transactions;

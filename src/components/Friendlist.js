@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const FriendList = function ({ friends }) {
   return (
     <ul className="friend-list">
@@ -14,6 +16,17 @@ const FriendList = function ({ friends }) {
       })}
     </ul>
   );
+};
+
+FriendList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.exact({
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+    })
+  ),
 };
 
 export default FriendList;
